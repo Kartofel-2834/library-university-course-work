@@ -9,8 +9,12 @@ import vue from '@vitejs/plugin-vue';
 import svgLoader from 'vite-svg-loader';
 import potKit from './vite-pot-kit-plugin';
 
+const isProd: boolean = process?.env?.NODE_ENV === 'production';
+
 // https://vitejs.dev/config/
 export default defineConfig({
+    base: isProd ? '/library-university-course-work/' : '/',
+
     plugins: [
         vue(),
         svgLoader(),
@@ -66,3 +70,6 @@ export default defineConfig({
         },
     },
 });
+
+
+
