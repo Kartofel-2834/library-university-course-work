@@ -45,7 +45,7 @@
                 <PotLink
                     :class="$style.link"
                     :active="$route.name === EAppPages.HOME"
-                    link="/"
+                    link="/library-university-course-work"
                     underline
                 >
                     Книги
