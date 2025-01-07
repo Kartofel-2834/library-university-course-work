@@ -33,7 +33,7 @@ import type { IPotInputPhoneProps } from '@/types/components';
 import { useMask } from '@/composables/mask';
 
 // Components
-import PotInputBase from '@/components/input/PotInputBase.vue';
+import PotInputBase from '@/components/ui/input/PotInputBase.vue';
 
 const $props = withDefaults(defineProps<IPotInputPhoneProps>(), {
     preicon: 'phone',
@@ -47,7 +47,6 @@ const $emit = defineEmits<{
 
 // Methods
 function onInput(newValue: unknown) {
-    console.log('phone', useMask(String(newValue), '+7 (###) ### ##-##'));
     $emit('input', newValue);
 }
 

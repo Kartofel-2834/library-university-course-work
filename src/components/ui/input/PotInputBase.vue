@@ -52,7 +52,7 @@ import { useDeviceProperties } from '@/composables/device-properties';
 import { useColorTheme } from '@/composables/color-theme';
 
 // Components
-const PotIcon = defineAsyncComponent(() => import('@/components/icon/PotIcon.vue'));
+const PotIcon = defineAsyncComponent(() => import('@/components/ui/icon/PotIcon.vue'));
 
 const $props = withDefaults(defineProps<IPotInputBaseProps>(), {
     size: ESize.MEDIUM,
@@ -147,12 +147,13 @@ function getParsedValue(newValue: string): unknown {
     display: flex;
     align-items: center;
     width: 100%;
-    border: 2px solid;
+    border-style: solid;
     cursor: text;
     transition: border-color var(--transition);
 
     /* --- Colors --- */
     @include modificator(color) {
+        background-color: var(--base-0);
         border-color: var(--color-border-100);
 
         @include modificator(disabled) {
@@ -162,14 +163,6 @@ function getParsedValue(newValue: string): unknown {
         }
 
         @include exclude-modificators(disabled) {
-            &:hover {
-                border-color: var(--color-border-200);
-
-                .icon {
-                    color: var(--color-border-200);
-                }
-            }
-
             @include modificator(focused) {
                 border-color: var(--color);
 
@@ -190,9 +183,10 @@ function getParsedValue(newValue: string): unknown {
 
         padding: 0 var(--spacer);
         gap: var(--unit);
+        border-width: 1px;
 
         .input {
-            height: var(--tiny-size);
+            height: calc(var(--tiny-size) - 2px);
         }
     }
 
@@ -201,9 +195,10 @@ function getParsedValue(newValue: string): unknown {
 
         padding: 0 var(--spacer);
         gap: var(--spacer-0-750);
+        border-width: 2px;
 
         .input {
-            height: var(--small-size);
+            height: calc(var(--small-size) - 4px);
         }
     }
 
@@ -212,9 +207,10 @@ function getParsedValue(newValue: string): unknown {
 
         padding: 0 var(--spacer-1-500);
         gap: var(--spacer);
+        border-width: 2px;
 
         .input {
-            height: var(--medium-size);
+            height: calc(var(--medium-size) - 4px);
         }
     }
 
@@ -223,9 +219,10 @@ function getParsedValue(newValue: string): unknown {
 
         padding: 0 var(--spacer-2);
         gap: var(--spacer-1-500);
+        border-width: 2px;
 
         .input {
-            height: var(--large-size);
+            height: calc(var(--large-size) - 4px);
         }
     }
 

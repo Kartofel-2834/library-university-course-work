@@ -1,5 +1,5 @@
 export type ValidatorBuilder<T = unknown> = (
-    message: string,
+    message?: string,
     fields?: Array<keyof T>
 ) => Validator<T>;
 

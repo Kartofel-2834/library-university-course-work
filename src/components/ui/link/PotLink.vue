@@ -29,14 +29,15 @@ import { useColorTheme } from '@/composables/color-theme';
 import { ALL_DEVICES } from '@/composables/device-is';
 
 const $props = withDefaults(defineProps<IPotLinkProps>(), {
-    tag: 'a',
+    tag: 'router-link',
     link: null,
     target: null,
-    toAttribute: 'href',
+    toAttribute: 'to',
     icon: '',
     preicon: '',
     disabled: false,
     underline: false,
+    active: false,
     color: EColorTheme.PRIMARY,
     devices: () => ALL_DEVICES,
 });
@@ -55,6 +56,7 @@ const classList = computed(() =>
         color: Boolean($props.color),
         disabled: $props.disabled,
         underline: $props.underline,
+        active: $props.active,
     }),
 );
 
@@ -101,12 +103,18 @@ const currentLink = computed<string | null>(() => {
     /* --- Colors --- */
     @include modificator(color) {
         @include exclude-modificators(disabled) {
-            &:not(:active):hover {
+            @include modificator(active) {
                 color: var(--color);
             }
 
-            &:active {
-                color: var(--color-active);
+            @include exclude-modificators(active) {
+                &:not(:active):hover {
+                    color: var(--color);
+                }
+
+                &:active {
+                    color: var(--color-active);
+                }
             }
         }
     }
@@ -118,6 +126,12 @@ const currentLink = computed<string | null>(() => {
         }
 
         @include exclude-modificators(disabled) {
+            @include modificator(active) {
+                &:after {
+                    transform: translateY(100%) scaleX(1);
+                }
+            }
+
             &:hover {
                 &:after {
                     transform: translateY(100%) scaleX(1);
@@ -130,6 +144,10 @@ const currentLink = computed<string | null>(() => {
     @include modificator(disabled) {
         color: var(--disabled-200);
         cursor: not-allowed;
+    }
+
+    @include modificator(active) {
+        pointer-events: none;
     }
 
     &:after {

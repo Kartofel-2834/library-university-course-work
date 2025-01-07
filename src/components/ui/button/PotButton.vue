@@ -50,7 +50,7 @@ import { ALL_DEVICES_REVERSED } from '@/composables/device-is';
 import { ERadius, ESize } from '@/enums/components';
 
 // Components
-const PotIcon = defineAsyncComponent(() => import('@/components/icon/PotIcon.vue'));
+const PotIcon = defineAsyncComponent(() => import('@/components/ui/icon/PotIcon.vue'));
 
 const $props = withDefaults(defineProps<IPotButtonProps>(), {
     tag: 'button',
@@ -104,7 +104,7 @@ const classList = computed(() =>
 
     /* --- Sizes --- */
     @include modificator(size, tiny) {
-        @include text(l4);
+        @include text(t4);
 
         height: var(--tiny-size);
         padding: 0 var(--spacer);
@@ -116,7 +116,7 @@ const classList = computed(() =>
     }
 
     @include modificator(size, small) {
-        @include text(l3);
+        @include text(t2);
 
         height: var(--small-size);
         padding: 0 var(--spacer-1-500);
@@ -128,7 +128,7 @@ const classList = computed(() =>
     }
 
     @include modificator(size, medium) {
-        @include text(l2);
+        @include text(t1);
 
         height: var(--medium-size);
         padding: 0 var(--spacer-2-500);
@@ -140,7 +140,7 @@ const classList = computed(() =>
     }
 
     @include modificator(size, large) {
-        @include text(l1);
+        @include text(t0);
 
         height: var(--large-size);
         padding: 0 var(--spacer-2-500);
@@ -165,6 +165,11 @@ const classList = computed(() =>
                 background-color: var(--color-hover);
             }
         }
+
+        &:disabled {
+            background-color: var(--disabled-200);
+            color: var(--base-0);
+        }
     }
 
     /* --- Radius --- */
@@ -176,7 +181,6 @@ const classList = computed(() =>
     }
 
     &:disabled {
-        opacity: 0.75;
         cursor: not-allowed;
     }
 

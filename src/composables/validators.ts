@@ -4,6 +4,9 @@ import type { ValidatorBuilder } from "@/types/composables";
 // Constants
 import { ValidatorsMessages } from "@/assets/ts/constants/validators-messages";
 
+// Libs
+import moment from "moment";
+
 export function useValidators<T = unknown>(): Record<string, ValidatorBuilder<T>> {
     return {
         REQUIRED: (msg = ValidatorsMessages.required) => {
@@ -13,9 +16,8 @@ export function useValidators<T = unknown>(): Record<string, ValidatorBuilder<T>
         DATE_VALID: (msg = ValidatorsMessages.incorrect) => {
             return v =>  {
                 const isValid = (
-                    typeof v === 'object' &&
-                    v instanceof Date &&
-                    !isNaN(v?.getTime?.())
+                    (moment.isMoment(v) || typeof v === 'string') &&
+                    moment(v).isValid()
                 );
 
                 return isValid ? null : msg;

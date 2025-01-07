@@ -50,7 +50,7 @@ import { useDeviceProperties } from '@/composables/device-properties';
 import { ALL_DEVICES } from '@/composables/device-is';
 
 // Components
-import PotIcon from '@/components/icon/PotIcon.vue';
+import PotIcon from '@/components/ui/icon/PotIcon.vue';
 
 const $props = withDefaults(defineProps<IPotCheckboxProps>(), {
     value: null,

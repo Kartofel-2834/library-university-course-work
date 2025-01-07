@@ -2,10 +2,25 @@
 
 /* Color themes */
 :root {
-    --primary: #a35440;
-    --primary-hover: #964734;
-    --primary-active: #823e2e;
+    --primary: #5e9dec;
+    --primary-hover: #408be9;
+    --primary-active: #1762c0;
     --primary-text: var(--base-0);
+
+    --primary-light: var(--base-0);
+    --primary-light-hover: var(--base-100);
+    --primary-light-active: var(--base-0);
+    --primary-light-text: var(--color-blue-400);
+
+    --secondary: #d5e6fa;
+    --secondary-hover: var(--color-blue-100);
+    --secondary-active: #d5e6fa;
+    --secondary-text: var(--color-blue-400);
+
+    --danger: var(--color-red-300);
+    --danger-hover: var(--color-red-200);
+    --danger-active: var(--color-red-300);
+    --danger-text: var(--base-0);
 }
 
 /* Breakpoints */

@@ -6,8 +6,8 @@ import type { FormValidators, FormErrors } from "@/types/composables";
 import { ref, computed, readonly } from "vue";
 
 export function useForm<T>(
-    validators: FormValidators<T>,
-    defaultValues: Partial<T>,
+    validators: FormValidators<T> = {},
+    defaultValues: Partial<T> = {},
 ) {
     const values: Ref<Partial<T>> = ref({});
     const errors: Ref<FormErrors<T>> = ref({});
@@ -30,11 +30,11 @@ export function useForm<T>(
             errorMessage = validator(value, values.value);
 
             if (errorMessage) {
-                errors.value = { ...errors.value, [field]: errorMessage };
                 break;
             }
         }
 
+        errors.value = { ...errors.value, [field]: errorMessage };
         return errorMessage;
     }
 

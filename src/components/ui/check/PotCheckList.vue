@@ -66,7 +66,7 @@ import { defineAsyncComponent, computed } from 'vue';
 import { useSpecsHelper } from '@/composables/specs-helper';
 
 // Components
-const PotCheckBox = defineAsyncComponent(() => import('@/components/check/PotCheckbox.vue'));
+const PotCheckBox = defineAsyncComponent(() => import('@/components/ui/check/PotCheckbox.vue'));
 
 const $props = withDefaults(defineProps<IPotCheckListProps>(), {
     tag: 'div',

@@ -14,7 +14,37 @@ export default defineConfig({
     plugins: [
         vue(),
         svgLoader(),
-        potKit()
+        potKit({
+            colorThemes: {
+                primary: {
+                    color: '#5e9dec',
+                    hover: '#408be9',
+                    active: '#1762c0',
+                    text: 'var(--base-0)',
+                },
+
+                'primary-light': {
+                    color: 'var(--base-0)',
+                    hover: 'var(--base-100)',
+                    active: 'var(--base-0)',
+                    text: 'var(--color-blue-400)',
+                },
+
+                secondary: {
+                    color: '#d5e6fa',
+                    hover: 'var(--color-blue-100)',
+                    active: '#d5e6fa',
+                    text: 'var(--color-blue-400)',
+                },
+
+                danger: {
+                    color: 'var(--color-red-300)',
+                    hover: 'var(--color-red-200)',
+                    active: 'var(--color-red-300)',
+                    text: 'var(--base-0)',
+                },
+            },
+        })
     ],
 
     css: {

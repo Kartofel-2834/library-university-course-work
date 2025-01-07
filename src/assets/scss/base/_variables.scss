@@ -19,7 +19,7 @@
     /* Size */
     --large-size: calc(var(--spacer) * 5.6);
     --medium-size: calc(var(--spacer) * 4.8);
-    --small-size: calc(var(--spacer) * 3.2);
+    --small-size: calc(var(--spacer) * 3.6);
     --tiny-size: calc(var(--spacer) * 2.4);
 
     /* Radius */
@@ -46,7 +46,6 @@
     --color-blue-200: #5e9dec;
     --color-blue-300: #408be9;
     --color-blue-400: #1762c0;
-    --color-blue-500: #5e9dec4d;
 
     --color-green-100: #30f5a9;
     --color-green-200: #0acf83;
@@ -96,7 +95,9 @@ $text-sizes: (
     // Headings
     h0: 4rem 500 5rem -0.8px,
     h1: 3.2rem 500 4rem -0.64px,
-    h2: 2.4rem 500 3.2rem -0.48px,
+    h2: 2.8rem 500 3.2rem -0.48px,
+    h3: 2.4rem 500 3.2rem -0.48px,
+    h4: 2rem 500 2.8rem -0.48px,
 
     // Labels
     l1: 2rem 500 2.2rem -0.2px,

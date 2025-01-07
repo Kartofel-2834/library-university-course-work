@@ -42,7 +42,7 @@ import { ERadius } from '@/enums/components';
 
 // Components
 const PotRadioElement = defineAsyncComponent(
-    () => import('@/components/radio/PotRadioElement.vue'),
+    () => import('@/components/ui/radio/PotRadioElement.vue'),
 );
 
 const $props = withDefaults(defineProps<IPotRadioProps>(), {

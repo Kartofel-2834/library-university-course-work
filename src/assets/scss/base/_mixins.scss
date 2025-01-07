@@ -100,6 +100,20 @@
     }
 }
 
+@mixin pretty-scrollbar($thumb: var(--primary), $background: var(--base-200)) {
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: var(--base-200);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $thumb;
+    }
+}
+
 /**
  * Миксин для быстрого описания базовых модификаторов компонента
  *

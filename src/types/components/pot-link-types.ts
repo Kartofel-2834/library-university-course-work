@@ -34,4 +34,6 @@ export interface IPotLinkProps {
 
     /** Если true, то ссылка будет подчеркиваться снизу при наведении */
     underline?: boolean;
+
+    active?: boolean;
 }

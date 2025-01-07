@@ -2,7 +2,10 @@
 
 /* ColorTheme */
 export enum EColorTheme {
-    PRIMARY = 'primary'
+    PRIMARY = 'primary',
+    PRIMARY_LIGHT = 'primary-light',
+    SECONDARY = 'secondary',
+    DANGER = 'danger'
 }
 
 /* Device */

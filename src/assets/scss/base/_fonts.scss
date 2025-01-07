@@ -2,3 +2,12 @@
 
 // Пример подключения шрифта:
 // @include font("Montserrat", "Montserrat-Black", 900, 'ttf');
+@include font('Inter', 'Inter-Black', 900, 'ttf');
+@include font('Inter', 'Inter-ExtraBold', 800, 'ttf');
+@include font('Inter', 'Inter-Bold', 700, 'ttf');
+@include font('Inter', 'Inter-SemiBold', 600, 'ttf');
+@include font('Inter', 'Inter-Medium', 500, 'ttf');
+@include font('Inter', 'Inter-Regular', 400, 'ttf');
+@include font('Inter', 'Inter-Light', 300, 'ttf');
+@include font('Inter', 'Inter-ExtraLight', 200, 'ttf');
+@include font('Inter', 'Inter-Thin', 100, 'ttf');
