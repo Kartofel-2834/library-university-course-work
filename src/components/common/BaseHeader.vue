@@ -54,7 +54,7 @@
                 <PotLink
                     :class="$style.link"
                     :active="$route.name === EAppPages.OCCUPIED_BOOKS"
-                    link="/occupied-books"
+                    link="/library-university-course-work/occupied-books"
                     underline
                 >
                     {{ $usersStore.isAdmin ? 'Выданные книги' : 'Мои книги' }}
@@ -64,7 +64,7 @@
                     v-if="$usersStore.isAdmin"
                     :class="$style.link"
                     :active="$route.name === EAppPages.USERS"
-                    link="/readers"
+                    link="/library-university-course-work/readers"
                     underline
                 >
                     Читатели
@@ -73,7 +73,7 @@
                 <PotLink
                     :class="$style.link"
                     :active="$route.name === EAppPages.REQUESTS"
-                    link="/requests"
+                    link="/library-university-course-work/requests"
                     underline
                 >
                     Запросы на получение книг

@@ -13,7 +13,7 @@ const isProd: boolean = process?.env?.NODE_ENV === 'production';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    base: isProd ? '/library-university-course-work/' : '/',
+    base: '/library-university-course-work/',
 
     plugins: [
         vue(),

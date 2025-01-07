@@ -154,9 +154,11 @@ function onClose() {
 
 <style lang="scss" module>
 .BookDetail {
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     width: calc(var(--spacer) * 52);
+    max-width: 100%;
     height: 100%;
     padding: var(--spacer-2) 0;
     gap: var(--spacer-4);

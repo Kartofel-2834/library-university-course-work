@@ -14,35 +14,35 @@ const adminsPages: EAppPages[] = [
 const routes = [
     // Home page
     {
-        path: '/',
+        path: '/library-university-course-work/',
         name: EAppPages.HOME,
         component: () => import('@/pages/home/HomePage.vue')
     },
 
     // Login page
     {
-        path: '/login',
+        path: '/library-university-course-work/login',
         name: EAppPages.LOGIN,
         component: () => import('@/pages/login/LoginPage.vue')
     },
 
     // Readers page
     {
-        path: '/readers',
+        path: '/library-university-course-work/readers',
         name: EAppPages.USERS,
         component: () => import('@/pages/readers/ReadersPage.vue')
     },
 
     // Requests page
     {
-        path: '/requests',
+        path: '/library-university-course-work/requests',
         name: EAppPages.REQUESTS,
         component: () => import('@/pages/requests/RequestsPage.vue')
     },  
     
     // Occupied books page
     {
-        path: '/occupied-books',
+        path: '/library-university-course-work/occupied-books',
         name: EAppPages.OCCUPIED_BOOKS,
         component: () => import('@/pages/occupied-books/OccupiedBooksPage.vue')
     },  
