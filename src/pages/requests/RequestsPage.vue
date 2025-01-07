@@ -182,6 +182,14 @@ function showMessage(newMessage: string) {
 
     margin-bottom: var(--spacer-4);
     user-select: none;
+
+    @include respond-to(tablet) {
+        @include text(h1);
+    }
+
+    @include respond-to(mobile) {
+        @include text(h2);
+    }
 }
 
 .list {

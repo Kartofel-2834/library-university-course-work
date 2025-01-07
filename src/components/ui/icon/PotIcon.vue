@@ -15,7 +15,6 @@ import type { IPotIconProps } from '@/types/components';
 import { ref, computed, watch, onMounted } from 'vue';
 
 const $props = withDefaults(defineProps<IPotIconProps>(), {
-    srcPath: '/icons/',
     size: null,
 });
 
@@ -24,11 +23,6 @@ const iconAttributes = ref<Record<string, string>>({});
 
 // Lifecycle hooks
 onMounted(updateIcon);
-
-/**
- * Путь к svg файлу иконки
- */
-const iconPath = computed<string>(() => `${$props.srcPath}${$props.icon}.svg?raw`);
 
 /**
  * Если проп size указан, то width: size в ремах / 10
@@ -42,19 +36,20 @@ const customSize = computed<Partial<Record<string, string>>>(() => {
 
     formattedSize = formattedSize / 10;
 
-    return { width: `${formattedSize}rem` };
+    return {
+        width: `${formattedSize}rem`,
+        height: `${formattedSize}rem`,
+    };
 });
 
-watch(() => iconPath?.value, updateIcon);
+watch(() => $props.icon, updateIcon);
 
 /**
  * Метод для загрузки и отображения контента svg иконки
- *
- * @throws Бросит ошибку, если iconPath не валидный.
  */
 async function updateIcon(): Promise<void> {
     try {
-        const icon = await import(/* @vite-ignore */ iconPath.value);
+        const icon = await import(`../../../../public/icons/${$props.icon}.svg?raw`);
         const data = icon?.default && typeof icon?.default === 'string' ? icon.default : '';
 
         const iconWrapper = document.createElement('div');
@@ -82,7 +77,6 @@ async function updateIcon(): Promise<void> {
 
 <style lang="scss" module>
 .PotIcon {
-    aspect-ratio: 1 / 1;
     color: inherit;
 }
 </style>

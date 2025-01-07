@@ -8,6 +8,8 @@
 
             <PotButton
                 :class="$style.addBookButton"
+                :size="[ESize.MEDIUM, ESize.SMALL]"
+                :devices="[EDevice.TABLET, EDevice.MOBILE]"
                 :color="EColorTheme.PRIMARY_LIGHT"
                 @click="isAddFormOpen = true"
             >
@@ -62,7 +64,7 @@
 import type { IReader } from '@/types/entities';
 
 // Enums
-import { EColorTheme } from '@/enums/config';
+import { EColorTheme, EDevice } from '@/enums/config';
 
 // Vue
 import { ref } from 'vue';
@@ -78,6 +80,7 @@ import ReaderAddForm from '@/components/pages/readers/ReaderAddForm.vue';
 
 // UI Components
 import PotButton from '@/components/ui/button/PotButton.vue';
+import { ESize } from '@/enums/components';
 
 const $usersStore = useUsersStore();
 
@@ -132,6 +135,14 @@ function showMessage(newMessage: string) {
 
     margin-bottom: var(--spacer-4);
     user-select: none;
+
+    @include respond-to(tablet) {
+        @include text(h1);
+    }
+
+    @include respond-to(mobile) {
+        @include text(h2);
+    }
 }
 
 .readersList {

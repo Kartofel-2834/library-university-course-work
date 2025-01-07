@@ -113,22 +113,37 @@ function onDelete() {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: var(--spacer-3);
     padding: var(--spacer-2);
     background-color: var(--base-100);
     border-radius: var(--radius-c);
+
+    @include respond-to(mobile) {
+        flex-direction: column;
+    }
 }
 
 .actions {
     display: grid;
     grid-auto-flow: row;
     grid-auto-rows: 1fr;
+    grid-auto-columns: 1fr;
     gap: var(--spacer);
+
+    @include respond-to(mobile) {
+        width: 100%;
+        grid-auto-flow: column;
+    }
 }
 
 .content {
     display: flex;
     align-items: center;
     gap: var(--spacer-2);
+
+    @include respond-to(mobile) {
+        flex-direction: column;
+    }
 }
 
 .image {
@@ -140,6 +155,11 @@ function onDelete() {
     width: calc(var(--spacer) * 10);
     height: calc(var(--spacer) * 10);
     border-radius: var(--radius-c);
+
+    @include respond-to(mobile) {
+        width: calc(var(--spacer) * 16);
+        height: calc(var(--spacer) * 20);
+    }
 }
 
 .imageTarget {
@@ -154,16 +174,28 @@ function onDelete() {
     display: flex;
     flex-direction: column;
     gap: var(--unit);
+
+    @include respond-to(mobile) {
+        align-items: center;
+    }
 }
 
 .bookAuthor {
     @include text(l2);
 
     color: var(--base-500);
+
+    @include respond-to(mobile) {
+        text-align: center;
+    }
 }
 
 .bookName {
     @include text(h4);
+
+    @include respond-to(mobile) {
+        text-align: center;
+    }
 }
 
 .creator {
@@ -174,6 +206,10 @@ function onDelete() {
     span {
         font-weight: 500;
         user-select: none;
+    }
+
+    @include respond-to(mobile) {
+        text-align: center;
     }
 }
 
@@ -190,6 +226,10 @@ function onDelete() {
     color: var(--base-0);
     pointer-events: none;
     user-select: none;
+
+    @include respond-to(mobile) {
+        text-align: center;
+    }
 }
 
 .fullname {

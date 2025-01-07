@@ -5,9 +5,6 @@ export interface IPotIconProps {
     /** Название svg файла без расширения */
     icon: string;
 
-    /** Путь до папки с иконками */
-    srcPath?: string;
-
     /**
      * Размер иконки в ремах * 10
      *

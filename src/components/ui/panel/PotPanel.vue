@@ -89,6 +89,7 @@ function onClose() {
     overflow: auto;
     height: 100%;
     min-width: calc(var(--spacer) * 32);
+    max-width: 100%;
     background-color: var(--base-0);
 
     @include pretty-scrollbar();

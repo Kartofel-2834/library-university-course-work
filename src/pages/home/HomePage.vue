@@ -8,6 +8,7 @@
             <div :class="$style.headerActions">
                 <PotInputBase
                     v-model="search"
+                    :class="$style.search"
                     placeholder="Поиск"
                 />
 
@@ -15,6 +16,8 @@
                     v-if="$usersStore.isAdmin"
                     :class="$style.addBookButton"
                     :color="EColorTheme.PRIMARY_LIGHT"
+                    :devices="[EDevice.TABLET, EDevice.MOBILE]"
+                    :size="[ESize.MEDIUM, ESize.SMALL]"
                     @click="isAddFormOpen = true"
                 >
                     Добавить книгу
@@ -86,8 +89,9 @@
 import type { IBook, IReader } from '@/types/entities';
 
 // Enums
-import { EColorTheme } from '@/enums/config';
+import { EColorTheme, EDevice } from '@/enums/config';
 import { EBookRequestStatus, EBookStatus } from '@/enums/entities';
+import { ESize } from '@/enums/components';
 
 // Vue
 import { ref, computed } from 'vue';
@@ -222,6 +226,14 @@ function showMessage(newMessage: string) {
 
     margin-bottom: var(--spacer-4);
     user-select: none;
+
+    @include respond-to(tablet) {
+        @include text(h1);
+    }
+
+    @include respond-to(mobile) {
+        @include text(h2);
+    }
 }
 
 .books {
@@ -229,12 +241,26 @@ function showMessage(newMessage: string) {
     grid-template-columns: 1fr 1fr 1fr;
     gap: var(--spacer-2);
     width: 100%;
+
+    @include respond-to(tablet) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @include respond-to(mobile) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .actions {
     display: flex;
     margin-top: var(--spacer-4);
     width: 100%;
+}
+
+.search {
+    @include respond-to(mobile) {
+        display: none;
+    }
 }
 
 .loadButton {

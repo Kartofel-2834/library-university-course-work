@@ -5,4 +5,10 @@
         padding: 0 4rem;
         margin: 0 auto;
     }
+
+    .container {
+        @include respond-to(tablet) {
+            padding: 0 var(--spacer-2);
+        }
+    }
 }

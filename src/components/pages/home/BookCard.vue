@@ -117,14 +117,22 @@ function onDelete() {
 
 <style lang="scss" module>
 .BookCard {
+    overflow: hidden;
     display: flex;
     flex-wrap: nowrap;
     gap: var(--spacer-2);
     width: 100%;
+    max-width: 100%;
     height: calc(var(--spacer) * 20);
     padding: var(--spacer-2);
     background-color: var(--base-100);
     border-radius: var(--radius-c);
+
+    @include respond-to(mobile) {
+        align-items: center;
+        flex-direction: column;
+        height: auto;
+    }
 }
 
 .imageWrapper {
@@ -137,6 +145,10 @@ function onDelete() {
     height: 100%;
     border-radius: var(--radius-c);
     background-color: var(--base-600);
+
+    @include respond-to(mobile) {
+        height: calc(var(--spacer) * 12);
+    }
 }
 
 .image {
@@ -160,6 +172,10 @@ function onDelete() {
     @include text-ellipsis(2);
 
     margin-bottom: var(--unit);
+
+    @include respond-to(mobile) {
+        text-align: center;
+    }
 }
 
 .author {
@@ -167,6 +183,10 @@ function onDelete() {
     @include text-ellipsis(2);
 
     color: var(--base-500);
+
+    @include respond-to(mobile) {
+        text-align: center;
+    }
 }
 
 .actions {

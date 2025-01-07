@@ -4,6 +4,8 @@
             <div :class="$style.leftSide">
                 <PotButton
                     :color="EColorTheme.PRIMARY_LIGHT"
+                    :devices="[EDevice.TABLET, EDevice.MOBILE]"
+                    :size="[ESize.MEDIUM, ESize.SMALL]"
                     icon="menu"
                     title="Меню"
                     square
@@ -92,7 +94,9 @@
 
 <script setup lang="ts">
 // Enums
-import { EColorTheme } from '@/enums/config';
+import { EColorTheme, EDevice } from '@/enums/config';
+import { EAppPages } from '@/enums/plugins/EAppPages';
+import { ESize } from '@/enums/components';
 
 // Vue
 import { ref } from 'vue';
@@ -106,7 +110,6 @@ import PotButton from '@/components/ui/button/PotButton.vue';
 import PotPanel from '@/components/ui/panel/PotPanel.vue';
 import PotIcon from '@/components/ui/icon/PotIcon.vue';
 import PotLink from '../ui/link/PotLink.vue';
-import { EAppPages } from '@/enums/plugins/EAppPages';
 
 const $usersStore = useUsersStore();
 const $route = useRoute();
@@ -201,5 +204,13 @@ function onCloseMenu() {
 
     cursor: default;
     user-select: none;
+
+    @include respond-to(tablet) {
+        @include text(h3);
+    }
+
+    @include respond-to(mobile) {
+        @include text(h4);
+    }
 }
 </style>

@@ -139,6 +139,14 @@ function showMessage(newMessage: string) {
 
     margin-bottom: var(--spacer-4);
     user-select: none;
+
+    @include respond-to(tablet) {
+        @include text(h1);
+    }
+
+    @include respond-to(mobile) {
+        @include text(h2);
+    }
 }
 
 .list {
@@ -146,5 +154,13 @@ function showMessage(newMessage: string) {
     grid-template-columns: 1fr 1fr 1fr;
     gap: var(--spacer-2);
     width: 100%;
+
+    @include respond-to(tablet) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @include respond-to(mobile) {
+        grid-template-columns: 1fr;
+    }
 }
 </style>

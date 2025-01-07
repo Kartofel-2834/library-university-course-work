@@ -87,5 +87,9 @@ function onDelete() {
 
 .fullname {
     @include text(l1);
+
+    @include respond-to(mobile) {
+        @include text(l2);
+    }
 }
 </style>

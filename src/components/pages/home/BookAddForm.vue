@@ -261,6 +261,7 @@ function mapToBook(form: Partial<IBookForm>): IBook {
     flex-direction: column;
     gap: var(--spacer-2);
     width: calc(var(--spacer) * 42);
+    max-width: 100%;
     height: 100%;
     padding: var(--spacer-3) 0;
 }
@@ -341,9 +342,14 @@ function mapToBook(form: Partial<IBookForm>): IBook {
 .actions {
     display: grid;
     grid-auto-flow: column;
+    grid-auto-rows: 1fr;
     grid-auto-columns: 1fr;
     gap: var(--spacer);
     flex-shrink: 0;
     margin: auto var(--spacer-3) 0 var(--spacer-3);
+
+    @include respond-to(mobile) {
+        grid-auto-flow: row;
+    }
 }
 </style>
